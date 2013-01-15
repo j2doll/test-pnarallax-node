@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{2843787b-b964-41ea-a934-6432624abf42}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm</Extensions>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{06030583-530a-4d65-8aed-e536d44f094c}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc</Extensions>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{f076ce9d-38b3-4a09-97de-89523127137e}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;jpg;jpeg;jpe;png;manifest</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CCParallaxNodeExtras.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CCParallaxNodeExtras.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Resources\._asteroid.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\._laserbeam_blue.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\._SpaceFlier_sm_1.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\asteroid.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\bg_front_spacedust.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\bg_galaxy.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\bg_planetsunrise.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\bg_spacialanomaly.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\bg_spacialanomaly2.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\CloseNormal.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\CloseSelected.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Default.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\explosion_large.caf">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\explosion_large.mp3">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\explosion_large.wav">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\HelloWorld.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Icon.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Icon%402x.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Icon-72.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Icon-Small.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Icon-Small%402x.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Icon-Small-50.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Info.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\iTunesArtwork">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\laser_ship.caf">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\laser_ship.mp3">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\laser_ship.wav">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\laserbeam_blue.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\SpaceFlier_sm_1.png">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\SpaceGame.caf">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\SpaceGame.mp3">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\SpaceGame.wav">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Sprites.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Sprites.pvr.ccz">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Stars1.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Stars2.plist">
+      <Filter>resource</Filter>
+    </None>
+    <None Include="..\Resources\Stars3.plist">
+      <Filter>resource</Filter>
+    </None>
+  </ItemGroup>
+</Project>
