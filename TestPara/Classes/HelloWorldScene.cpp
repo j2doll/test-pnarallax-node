@@ -16,25 +16,21 @@ const int HelloWorld::_KNUMASTEROIDS_ = 15 ;
 CCScene* HelloWorld::scene()
 {
 	CCScene *scene = CCScene::create(); // 'scene' is an autorelease object
-
 	HelloWorld* helloWorld = HelloWorld::create(); // 'layer' is an autorelease object
-
 	scene->addChild(helloWorld); // add layer as a child to scene
-
 	return scene; // return the scene
 }
 
 // on "init" you need to initialize your instance
 bool HelloWorld::init()
 {
-
-	//////////////////////////////
-	// 1. super init first
-	if ( ! CCLayer::init() )
+	
+	if ( ! CCLayer::init() ) // call super init first
 	{
 		return false;
 	}
 
+	// init all member variables 
 	{
 		_batchNode = NULL;
 		_ship = NULL;
@@ -110,7 +106,8 @@ bool HelloWorld::init()
   
    // Asteroids
    _asteroids = new CCArray(); 
-   for(int i = 0; i < _KNUMASTEROIDS_; ++i) {
+   for(int i = 0; i < _KNUMASTEROIDS_; ++i) 
+   {
      CCSprite *asteroid = CCSprite::spriteWithSpriteFrameName("asteroid.png");
 	 asteroid->setVisible(false);
      _batchNode->addChild(asteroid);
@@ -122,13 +119,9 @@ bool HelloWorld::init()
    for ( int i = 0; i < _KNUMLASERS_; ++i ) 
    {
      CCSprite *shipLaser = CCSprite::spriteWithSpriteFrameName("laserbeam_blue.png");
-     
 	 shipLaser->setVisible(false); 
-
      _batchNode->addChild(shipLaser);
-
      _shipLasers->addObject(shipLaser);
-
    }
  
    this->setTouchEnabled(true); 
@@ -187,19 +180,25 @@ void HelloWorld::restartTapped( CCObject* object )
   this->scheduleUpdate() ; 
 }
 
-void HelloWorld::update(float dt) {
+// 
+void HelloWorld::update(float dt) 
+{
   
+	return; // check point #1 
+
   CCPoint backgroundScrollVert = ccp(-1000,0) ;
-  _backgroundNode->setPosition(ccpAdd(_backgroundNode->getPosition(),ccpMult(backgroundScrollVert,dt))) ; 
+  _backgroundNode->setPosition( ccpAdd(_backgroundNode->getPosition(),ccpMult(backgroundScrollVert,dt)) ) ; 
   
   CCArray *spaceDusts = CCArray::arrayWithCapacity(2) ;
   spaceDusts->addObject(_spacedust1) ;
   spaceDusts->addObject(_spacedust2) ;
-  for ( int ii = 0  ; ii <spaceDusts->count() ; ii++ ) {
+  for ( int ii = 0  ; ii <spaceDusts->count() ; ii++ ) 
+  {
     CCSprite * spaceDust = (CCSprite *)(spaceDusts->objectAtIndex(ii)) ;
     float xPosition = _backgroundNode->convertToWorldSpace(spaceDust->getPosition()).x  ;
     float size = spaceDust->getContentSize().width ;
-    if ( xPosition < -size ) {
+    if ( xPosition < -size ) 
+	{
       _backgroundNode->incrementOffset(ccp(spaceDust->getContentSize().width*2,0),spaceDust) ; 
     }                                  
   } 
@@ -209,11 +208,13 @@ void HelloWorld::update(float dt) {
   backGrounds->addObject(_planetsunrise) ;
   backGrounds->addObject(_spacialanomaly) ;
   backGrounds->addObject(_spacialanomaly2) ;
-  for ( int ii = 0 ; ii <backGrounds->count() ; ii++ ) {
+  for ( int ii = 0 ; ii <backGrounds->count() ; ii++ ) 
+  {
     CCSprite * background = (CCSprite *)(backGrounds->objectAtIndex(ii)) ;
     float xPosition = _backgroundNode->convertToWorldSpace(background->getPosition()).x ;
     float size = background->getContentSize().width ;
-    if ( xPosition < -size ) {
+    if ( xPosition < -size ) 
+	{
       _backgroundNode->incrementOffset(ccp(2000,0),background) ; 
     }                                   
   }
@@ -230,39 +231,38 @@ void HelloWorld::update(float dt) {
 
   // dealing with asteroids
   // Add to bottom of update loop
-  float curTimeMillis = getTimeTick();
-   if (curTimeMillis > _nextAsteroidSpawn) {
+	float curTimeMillis = getTimeTick();
+	if (curTimeMillis > _nextAsteroidSpawn) 
+	{
 
-      float randSecs = randomValueBetween(0.20,1.0) * 1000 ; // We're millisecs now
-    _nextAsteroidSpawn = randSecs + curTimeMillis;
+		float randSecs = randomValueBetween(0.20,1.0) * 1000 ; // We're millisecs now
+		_nextAsteroidSpawn = randSecs + curTimeMillis;
 
-    float randY = randomValueBetween(0.0,winSize.height);
-    float randDuration = randomValueBetween(2.0,10.0);
+		float randY = randomValueBetween(0.0,winSize.height);
+		float randDuration = randomValueBetween(2.0,10.0);
 
-    // CCSprite *asteroid = _asteroids->getObjectAtIndex(_nextAsteroid);
-	CCSprite *asteroid = (CCSprite *) _asteroids->objectAtIndex( _nextAsteroid ); 
+		// CCSprite *asteroid = _asteroids->getObjectAtIndex(_nextAsteroid);
+		CCSprite *asteroid = (CCSprite *) _asteroids->objectAtIndex( _nextAsteroid ); 
 
-    _nextAsteroid++;
+		_nextAsteroid++;
 
-    if (_nextAsteroid >= _asteroids->count())
-      _nextAsteroid = 0;
+		if (_nextAsteroid >= _asteroids->count())
+			_nextAsteroid = 0;
 
-    asteroid->stopAllActions();
+		asteroid->stopAllActions();
     
-	asteroid->setPosition( ccp(winSize.width+asteroid->getContentSize().width/2, randY));
-	asteroid->setVisible(true);
-     asteroid->runAction ( 
-          CCSequence::actions (
-            CCMoveBy::actionWithDuration(randDuration,ccp(-winSize.width-asteroid->getContentSize().width,0)) ,
-            CCCallFuncN::actionWithTarget(this,callfuncN_selector(HelloWorld::setInvisible)) ,
-            NULL  // DO NOT FORGET TO TERMINATE WITH NULL (unexpected in C++)
-                              ) ) ;
+		asteroid->setPosition( ccp(winSize.width+asteroid->getContentSize().width/2, randY));
+		asteroid->setVisible(true);
+		asteroid->runAction ( 
+			CCSequence::actions (
+					CCMoveBy::actionWithDuration(randDuration,ccp(-winSize.width-asteroid->getContentSize().width,0)) ,
+					CCCallFuncN::actionWithTarget(this,callfuncN_selector(HelloWorld::setInvisible)) ,
+					NULL  // DO NOT FORGET TO TERMINATE WITH NULL (unexpected in C++)
+				) ) ;
   }  
 
 	// collision detection 
-	// CCArray<CCSprite *>::CCMutableArrayIterator itAster , itLaser ;
-  
-	CCObject* itAster = NULL; 
+  	CCObject* itAster = NULL; 
 	CCARRAY_FOREACH( _asteroids, itAster )
 	{
 		CCSprite *asteroid = (CCSprite *) itAster; 
