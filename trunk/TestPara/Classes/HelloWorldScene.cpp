@@ -184,7 +184,7 @@ void HelloWorld::restartTapped( CCObject* object )
 void HelloWorld::update(float dt) 
 {
   
-	return; // check point #1 
+	// return; // check point #1 
 
   CCPoint backgroundScrollVert = ccp(-1000,0) ;
   _backgroundNode->setPosition( ccpAdd(_backgroundNode->getPosition(),ccpMult(backgroundScrollVert,dt)) ) ; 
